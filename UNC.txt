@@ -27,7 +27,7 @@ end
 print("\n")
 
 print("UNC Environment Check")
-print("✅ - Pass, ❌ - Fail, ❔ - No test, ⚠️ - Missing aliases\n")
+print("✅ - Pass, ⛔ - Fail, ⏺️ - No test, ⚠️ - Missing aliases\n")
 
 task.defer(function()
 	repeat task.wait() until running == 0
