@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Google Maps Explorer
+                </h1>
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search for places, addresses, or landmarks..." />
+                        <button id="searchBtn" class="search-btn">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="sidebar">
+                <div class="controls-panel">
+                    <h3>Map Controls</h3>
+                    
+                    <div class="control-group">
+                        <label for="mapType">Map Type:</label>
+                        <select id="mapType" class="control-select">
+                            <option value="roadmap">Roadmap</option>
+                            <option value="satellite">Satellite</option>
+                            <option value="hybrid">Hybrid</option>
+                            <option value="terrain">Terrain</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <button id="getCurrentLocation" class="btn btn-primary">
+                            <i class="fas fa-location-arrow"></i>
+                            My Location
+                        </button>
+                    </div>
+
+                    <div class="control-group">
+                        <button id="clearMarkers" class="btn btn-secondary">
+                            <i class="fas fa-trash"></i>
+                            Clear Markers
+                        </button>
+                    </div>
+
+                    <div class="control-group">
+                        <h4>Quick Places</h4>
+                        <div class="quick-places">
+                            <button class="quick-place-btn" data-place="New York">New York</button>
+                            <button class="quick-place-btn" data-place="London">London</button>
+                            <button class="quick-place-btn" data-place="Tokyo">Tokyo</button>
+                            <button class="quick-place-btn" data-place="Paris">Paris</button>
+                            <button class="quick-place-btn" data-place="Sydney">Sydney</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="markers-panel">
+                    <h3>Saved Locations</h3>
+                    <div id="markersList" class="markers-list">
+                        <p class="no-markers">No saved locations yet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div id="map" class="map"></div>
+                <div class="map-overlay">
+                    <div class="coordinates-display" id="coordinatesDisplay">
+                        Lat: 0.000000, Lng: 0.000000
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Custom Info Window Template -->
+    <div id="infoWindowTemplate" style="display: none;">
+        <div class="custom-info-window">
+            <h4 class="info-title"></h4>
+            <p class="info-address"></p>
+            <div class="info-actions">
+                <button class="info-btn save-location">
+                    <i class="fas fa-bookmark"></i>
+                    Save
+                </button>
+                <button class="info-btn get-directions">
+                    <i class="fas fa-directions"></i>
+                    Directions
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Replace YOUR_API_KEY with your actual Google Maps API key -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap">
+    </script>
+</body>
+</html>
